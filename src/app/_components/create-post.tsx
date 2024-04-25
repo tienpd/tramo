@@ -20,7 +20,7 @@ export function CreatePost() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        createPost.mutate({ name });
+        createPost.mutate({ name, categoryId: 1});
       }}
       className="flex flex-col gap-2"
     >

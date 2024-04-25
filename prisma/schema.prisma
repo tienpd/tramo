@@ -15,8 +15,18 @@ model Post {
   updatedAt   DateTime @updatedAt
   createdById String
   createdBy   User     @relation(fields: [createdById], references: [id])
+  categoryId  Int
+  category    Category @relation(fields: [categoryId], references: [id])
 
   @@index([name])
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  posts     Post[]
 }
 
 model Account {
